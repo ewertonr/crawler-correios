@@ -8,7 +8,7 @@ const { sleep } = require('./util/common');
         logger.info('vai abrir o browser');
         await browser.init();
         await sleep(5);
-        await driver.open('https://www2.correios.com.br/sistemas/rastreamento/default.cfm');
+        await browser.open('https://www2.correios.com.br/sistemas/rastreamento/default.cfm');
         logger.info('pagina carregada');
 
 
