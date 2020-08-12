@@ -14,6 +14,7 @@
   "author": "Ewerton Ribeiro",
   "license": "MIT",
   "dependencies": {
+    "himalaya": "^1.1.0",
     "selenium-webdriver": "^4.0.0-alpha.7",
     "winston": "^3.3.3",
     "winston-transport": "^4.4.0"

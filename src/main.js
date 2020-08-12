@@ -1,11 +1,10 @@
+const { parse } = require('himalaya');
 const Browser = require('./lib/selenium');
 const logger = require('./util/log');
 const { sleep } = require('./util/common');
-const htmlparser = require('htmlparser');
+
 
 (async function example() {
-  const handler = new htmlparser.DefaultHandler((() => {}));
-  const parser = new htmlparser.Parser(handler);
   const browser = new Browser();
   try {
     logger.info('vai abrir o browser');
@@ -16,7 +15,7 @@ const htmlparser = require('htmlparser');
 
 
     await sleep(3);
-    await browser.fillInput('objetos', 'OK522088524BR');
+    await browser.fillInput('objetos', 's');
     logger.info('preencheu o campo');
 
 
@@ -29,7 +28,8 @@ const htmlparser = require('htmlparser');
     logger.info('aguardou 10 secs e vai fechar');
     const content = await browser.getContent('listEvent sro');
     console.log(content);
-    const teste = htmlparser
+    const json = parse(content);
+    console.log(JSON.stringify(json));
   } finally {
     await browser.close();
   }
