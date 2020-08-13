@@ -1,7 +1,9 @@
-const { parse } = require('himalaya');
+require('dotenv').config();
+
 const Browser = require('./lib/selenium');
 const logger = require('./util/log');
-const { sleep } = require('./util/common');
+const { sleep, formatter } = require('./util/common');
+const { get, update } = require('./lib/dynamodb');
 
 
 (async function example() {
@@ -26,10 +28,15 @@ const { sleep } = require('./util/common');
 
     await sleep(5);
     logger.info('aguardou 10 secs e vai fechar');
-    const content = await browser.getContent('listEvent sro');
-    console.log(content);
-    const json = parse(content);
-    console.log(JSON.stringify(json));
+
+    const eventDates = await browser.getElementsTextByClass('sroDtEvent');
+    const eventDescriptions = await browser.getElementsTextByClass('sroLbEvent');
+
+    for (let i = 0; i < eventDates.length; i += 1) {
+      console.log('-------------------------');
+      console.log(formatter(eventDates[i], eventDescriptions[i]));
+      console.log();
+    }
   } finally {
     await browser.close();
   }

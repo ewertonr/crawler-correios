@@ -17,8 +17,16 @@ class Browser {
     this.driver.findElement(By.id(id)).click();
   }
 
-  async getContent(className) {
-    return this.driver.findElement(By.className(className)).getAttribute('innerHTML');
+  async getElementsTextByClass(className) {
+    const results = [];
+    const elements = await this.driver.findElements(By.className(className));
+
+    await Promise.all(elements.map(async (element) => {
+      const result = await element.getText();
+      results.push(result);
+    }));
+
+    return results;
   }
 
   async close() {
