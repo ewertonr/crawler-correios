@@ -1,0 +1,32 @@
+{
+  "name": "crawler-correios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ewertonr/crawler-correios.git"
+  },
+  "author": "Ewerton Ribeiro",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.732.0",
+    "dotenv": "^8.2.0",
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "winston": "^3.3.3",
+    "winston-transport": "^4.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-standard": "^10.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
