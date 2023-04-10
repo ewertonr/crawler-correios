@@ -14,7 +14,7 @@
   "author": "Ewerton Ribeiro",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.814.0",
+    "aws-sdk": "^2.1354.0",
     "dotenv": "^8.2.0",
     "selenium-webdriver": "^4.0.0-alpha.7",
     "winston": "^3.3.3",
